@@ -1,0 +1,13 @@
+
+g	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(¬ØÖÔüÿÿÿÿ8ª›Ûàô1
+Q
+java:S3740"/Provide the parametrized type for this generic.(½™æüÿÿÿÿ8«›Ûàô1
+Q
+java:S3740."/Provide the parametrized type for this generic.(Ÿ˜Ë†ıÿÿÿÿ8«›Ûàô1
+w
+java:S3008"URename this field "SCROLL_DUR" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(È‹ôüÿÿÿÿ8À›Ûàô1
+G	java:S106"+Replace this use of System.out by a logger.(–İÅ8Ç›Ûàô1
+L	java:S106"+Replace this use of System.out by a logger.(ø éöúÿÿÿÿ8È›Ûàô1
+G	java:S106/"+Replace this use of System.out by a logger.(‚ªÂÜ8•©ßàô1
+D
+java:S47386""Use "java.util.List.of()" instead.(ıòÃûøÿÿÿÿ8Ì›Ûàô1

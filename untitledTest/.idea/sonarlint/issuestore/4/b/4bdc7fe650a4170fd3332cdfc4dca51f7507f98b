@@ -1,0 +1,7 @@
+
+t	java:S116"SRename this field "UserName" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‡Ÿ³†ûÿÿÿÿ8ƒÀšãô1
+t	java:S116"SRename this field "Password" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(™ÊÛúıÿÿÿÿ8ƒÀšãô1
+t	java:S116"SRename this field "LoginBtn" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­’¾Çıÿÿÿÿ8ƒÀšãô1
+o	java:S116"SRename this field "ErrorMsg" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(›±µÂ8„Àšãô1
+I
+java:S1128"-Remove this unused import 'org.junit.Assert'.(­ŞL8Ìò¢äô1
