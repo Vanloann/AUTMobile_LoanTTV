@@ -8,9 +8,9 @@ import org.junit.Assert;
 //import org.testng.Assert;
 
 public class LoginPage extends BasePage {
-    public LoginPage(AppiumDriver<MobileElement> driver) {
-        super(driver);
-    }
+//    public LoginPage(AppiumDriver<MobileElement> driver) {
+//        super(driver);
+//    }
     @AndroidFindBy(xpath = "//android.widget.EditText[@content-desc='test-Username']")
     private MobileElement UserName;
     @AndroidFindBy(xpath = "//android.widget.EditText[@content-desc='test-Password']")

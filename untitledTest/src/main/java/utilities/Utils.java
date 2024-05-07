@@ -1,6 +1,7 @@
-package ultilities;
+package utilities;
 
 import com.google.common.collect.ImmutableList;
+import driver.AppDriver;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Point;
@@ -16,12 +17,12 @@ public class Utils {
         UP, DOWN, LEFT, RIGHT
     }
 
-    public static void scroll(ScrollDirection dir, double scrollRatio, AppiumDriver driver) {
+    public static void scroll(ScrollDirection dir, double scrollRatio) {
 
         if (scrollRatio < 0 || scrollRatio > 1) {
             throw new Error("Scroll distance must be between 0 and 1");
         }
-        Dimension size = driver.manage().window().getSize();
+        Dimension size = AppDriver.getCurrentDriver().manage().window().getSize();
         System.out.println(size);
         Point midPoint = new Point((int) (size.width * 0.5), (int) (size.height * 0.5));
         System.out.println(midPoint);
@@ -33,17 +34,17 @@ public class Utils {
         int right = midPoint.x + (int) (midPoint.x * scrollRatio);
 
         if (dir == ScrollDirection.UP) {
-            swipe(new Point(midPoint.x, top), new Point(midPoint.x, bottom), SCROLL_DUR, driver);
+            swipe(new Point(midPoint.x, top), new Point(midPoint.x, bottom), SCROLL_DUR);
         } else if (dir == ScrollDirection.DOWN) {
-            swipe(new Point(midPoint.x, bottom), new Point(midPoint.x, top), SCROLL_DUR, driver);
+            swipe(new Point(midPoint.x, bottom), new Point(midPoint.x, top), SCROLL_DUR);
         } else if (dir == ScrollDirection.LEFT) {
-            swipe(new Point(left, midPoint.y), new Point(right, midPoint.y), SCROLL_DUR, driver);
+            swipe(new Point(left, midPoint.y), new Point(right, midPoint.y), SCROLL_DUR);
         } else {
-            swipe(new Point(right, midPoint.y), new Point(left, midPoint.y), SCROLL_DUR, driver);
+            swipe(new Point(right, midPoint.y), new Point(left, midPoint.y), SCROLL_DUR);
         }
     }
 
-    public static void swipe(Point start, Point end, Duration duration, AppiumDriver driver) {
+    public static void swipe(Point start, Point end, Duration duration) {
         System.out.println(start + " " + end);
         PointerInput input = new PointerInput(PointerInput.Kind.TOUCH, "finger");
         Sequence swipe = new Sequence(input, 0);
@@ -51,6 +52,6 @@ public class Utils {
         swipe.addAction(input.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
         swipe.addAction(input.createPointerMove(duration, PointerInput.Origin.viewport(), end.x, end.y));
         swipe.addAction(input.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
-        driver.perform(ImmutableList.of(swipe));
+        AppDriver.getCurrentDriver().perform(ImmutableList.of(swipe));
     }
 }

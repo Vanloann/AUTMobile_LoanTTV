@@ -1,5 +1,6 @@
 package base;
 
+import driver.AppDriver;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
@@ -12,10 +13,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class BasePage {
     protected AppiumDriver<MobileElement> driver;
     public WebDriverWait wait;
-    public BasePage(AppiumDriver<MobileElement> driver) {
-        this.driver = driver;
-        PageFactory.initElements(new AppiumFieldDecorator(driver), this);
-        wait = new WebDriverWait(driver, 2L);
+//    public BasePage(AppiumDriver<MobileElement> driver) {
+//        this.driver = driver;
+//        PageFactory.initElements(new AppiumFieldDecorator(driver), this);
+//        wait = new WebDriverWait(driver, 2L);
+//    }
+    public BasePage() {
+        PageFactory.initElements(new AppiumFieldDecorator(AppDriver.getCurrentDriver()), this);
+        wait = new WebDriverWait(AppDriver.getCurrentDriver(), 2L);
     }
     protected void waitForElement(MobileElement element){
         wait.until(ExpectedConditions.visibilityOf(element));
