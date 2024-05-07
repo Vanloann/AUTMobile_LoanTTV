@@ -7,28 +7,33 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 import pages.ProductsPage;
-import ultilities.Utils;
+import utilities.Utils;
 
 import java.net.MalformedURLException;
-import java.util.concurrent.TimeUnit;
 
 public class LoginTest extends BaseTest {
     protected AppiumDriver<MobileElement> driver;
     LoginPage loginPage;
     ProductsPage productsPage;
 
+//    @BeforeClass
+//    public void beforeClass() throws MalformedURLException {
+//        driver = getDriver();
+//        loginPage = new LoginPage(driver);
+//        productsPage = new ProductsPage(driver);
+//    }
     @BeforeClass
     public void beforeClass() throws MalformedURLException {
-        driver = getDriver();
-        loginPage = new LoginPage(driver);
-        productsPage = new ProductsPage(driver);
+        getDriver();
+        loginPage = new LoginPage();
+        productsPage = new ProductsPage();
     }
 
     @Test(priority = 1)
     public void loginFail() {
         loginPage.login("standard_user", "123");
         loginPage.verifyLoginFail();
-        Utils.scroll(Utils.ScrollDirection.DOWN, 0.5, driver);
+        Utils.scroll(Utils.ScrollDirection.DOWN, 0.5);
     }
 
     @Test(priority = 2)
@@ -36,6 +41,6 @@ public class LoginTest extends BaseTest {
         loginPage.login("standard_user", "secret_sauce");
         productsPage.verifyTitleDisplayed();
         productsPage.clickSideBar();
-        Utils.scroll(Utils.ScrollDirection.RIGHT, 0.6, driver);
+        Utils.scroll(Utils.ScrollDirection.RIGHT, 0.6);
     }
 }
