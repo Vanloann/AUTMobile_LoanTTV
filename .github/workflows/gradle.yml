@@ -33,7 +33,7 @@ jobs:
     - name: Setup Gradle
       uses: gradle/actions/setup-gradle@v3.3.2
       with:
-        gradle-version: 7.4
+        gradle-version: '7.4'
     - name: Run build with Gradle Wrapper
       run: ./gradlew build
 
